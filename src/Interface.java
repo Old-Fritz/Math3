@@ -25,7 +25,7 @@ public class Interface {
 
     Interface() {
         frame = new JFrame("VMLab3");
-        frame.setSize(900, 600);
+        frame.setSize(1100, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
@@ -57,6 +57,12 @@ public class Interface {
         c.weightx = 1;
         mainPanel.add(graphicsPanel, c);
 
+        addPoint(1,1);
+        addPoint(2,4);
+        addPoint(3,9);
+        addPoint(4,16);
+        addPoint(5,25);
+
     }
 
     private void createInDataPanel() {
@@ -82,14 +88,14 @@ public class Interface {
         listScroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         listScroller.setAlignmentX(0.5f);
         c.gridy = 1;
-        c.weighty = 0.8f;
+        c.weighty = 0.9f;
         inDataPanel.add(listScroller, c);
 
         // Buttons
         JPanel buttons = new JPanel(new GridLayout(0, 1));
         //buttons.setAlignmentX(0.5f);
         c.gridy = 2;
-        c.weighty = 0.15f;
+        c.weighty = 0.05f;
         inDataPanel.add(buttons, c);
 
         // add Button
@@ -99,11 +105,11 @@ public class Interface {
 
         // load Button
         JButton loadButton = new JButton("Загрузить");
-        buttons.add(loadButton);
+        //buttons.add(loadButton);
 
         // save Button
         JButton saveButton = new JButton("Сохранить");
-        buttons.add(saveButton);
+        //buttons.add(saveButton);
     }
 
     private void createOutDataPanel() {

@@ -34,6 +34,7 @@ public class Drawer extends JPanel {
     double height;
     double width;
     double minX,minY,maxX, maxY;
+    double scaleY, scaleX;
 
     Drawer()
     {
@@ -51,7 +52,7 @@ public class Drawer extends JPanel {
         ((Graphics2D)g).setStroke(new BasicStroke(3F));
         for (Point point: points) {
             g.setColor(point.color);
-            g.fillOval(convertCoordX(point.x), convertCoordY(point.y),6,6);
+            g.fillOval(convertCoordX(point.x)-5, convertCoordY(point.y)-5,10,10);
         }
         for(Line line:lines)
         {
@@ -93,12 +94,18 @@ public class Drawer extends JPanel {
 
     private int convertCoordX(double x)
     {
-        return (int)((double)getSize().width/width*x-minX);
+        int newX = (int)(((double)getSize().width/width*(x-minX)));
+       // if(newX>=getSize().width)
+            //newX = getSize().width-1;
+        return newX;
     }
 
     private int convertCoordY(double y)
     {
-        return getSize().height-(int)((double)getSize().height/height*y-minY);
+        int newY = getSize().height-(int)(((double)getSize().height/height*(y-minY)));
+        //if(newY>=getSize().height)
+        //    newY = getSize().height-1;
+        return newY;
     }
 
     private void setSize(double x, double y)
@@ -106,12 +113,16 @@ public class Drawer extends JPanel {
         if(x/y>(double)getSize().width/(double)getSize().height)
         {
             width = x;
-            height = (double)getSize().height/(double)getSize().width*x;
+            scaleX = 1;
+            scaleY = (double)getSize().height/(double)getSize().width*x/y;
+            height = y;
         }
         else
         {
             height = y;
-            width = (double)getSize().width/(double)getSize().height * y;
+            scaleY = 1;
+            scaleX = (double)getSize().width/(double)getSize().height * y/x;
+            width = x;
         }
     }
 

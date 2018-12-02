@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="org.ejml:all:0.31-SNAPSHOT" type="repository">
+    <properties maven-id="org.ejml:all:0.31-SNAPSHOT" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/all/0.31-SNAPSHOT/all-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/core/0.31-SNAPSHOT/core-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/dense32/0.31-SNAPSHOT/dense32-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/dense64/0.31-SNAPSHOT/dense64-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/denseC32/0.31-SNAPSHOT/denseC32-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/denseC64/0.31-SNAPSHOT/denseC64-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/equation/0.31-SNAPSHOT/equation-0.31-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ejml/simple/0.31-SNAPSHOT/simple-0.31-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
