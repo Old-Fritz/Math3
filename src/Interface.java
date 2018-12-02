@@ -19,7 +19,7 @@ public class Interface{
     JPanel secondBKoefs;
     JLabel deletedPoint;
 
-    JPanel graphicsPanel;
+    Drawer graphicsPanel;
 
     Interface()
     {
@@ -56,6 +56,7 @@ public class Interface{
         c.gridx = 2;
         c.weightx = 1;
         mainPanel.add(graphicsPanel,c);
+
     }
 
     private void createInDataPanel()
@@ -67,7 +68,6 @@ public class Interface{
 
         inDataPanel = new JPanel();
         inDataPanel.setLayout(new GridBagLayout());
-        inDataPanel.setBackground(Color.ORANGE);
 
         //label
         JLabel label = new JLabel("Введите точки:");
@@ -114,7 +114,6 @@ public class Interface{
         c.fill = GridBagConstraints.BOTH;
 
         outDataPanel = new JPanel(new GridBagLayout());
-        outDataPanel.setBackground(Color.RED);
         //outDataPanel.add(new JButton("Button 1"));
 
         // label
@@ -173,9 +172,7 @@ public class Interface{
 
     private void createGraphicsPanel()
     {
-        graphicsPanel = new JPanel(new GridBagLayout());
-        graphicsPanel.setBackground(Color.GREEN);
-        graphicsPanel.add(new JButton("Button 1"));
+        graphicsPanel = new Drawer();
     }
 
     public void addPoint(double x, double y)
