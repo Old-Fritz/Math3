@@ -9,15 +9,22 @@ import java.util.List;
 public class Interface{
     JFrame frame;
     JPanel mainPanel;
+
     JPanel inDataPanel;
     JPanel scrollInData;
+
     JPanel outDataPanel;
+    JSpinner functionSpinner;
+    JPanel firstBKoefs;
+    JPanel secondBKoefs;
+    JLabel deletedPoint;
+
     JPanel graphicsPanel;
 
     Interface()
     {
         frame = new JFrame("VMLab3");
-        frame.setSize(800, 500);
+        frame.setSize(900, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
@@ -49,8 +56,6 @@ public class Interface{
         c.gridx = 2;
         c.weightx = 1;
         mainPanel.add(graphicsPanel,c);
-
-
     }
 
     private void createInDataPanel()
@@ -102,11 +107,68 @@ public class Interface{
         buttons.add(saveButton);
     }
 
-    private void createOutDataPanel()
-    {
+    private void createOutDataPanel() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.weightx = 1;
+        c.fill = GridBagConstraints.BOTH;
+
         outDataPanel = new JPanel(new GridBagLayout());
         outDataPanel.setBackground(Color.RED);
-        outDataPanel.add(new JButton("Button 1"));
+        //outDataPanel.add(new JButton("Button 1"));
+
+        // label
+        c.gridy = 0;
+        c.weighty = 0.05f;
+        outDataPanel.add(new JLabel("Выберите степень функции:"), c);
+
+        // function spinner
+        c.gridy = 1;
+        c.weighty = 0.05f;
+        functionSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 9, 1));
+        outDataPanel.add(functionSpinner, c);
+
+        // calc button
+        c.gridy = 2;
+        c.weighty = 0.05f;
+        JButton calcButton = new JButton("Расчитать");
+        outDataPanel.add(calcButton,c);
+
+        // b koefs
+        firstBKoefs = new JPanel(new GridLayout(10, 2));
+        secondBKoefs = new JPanel(new GridLayout(10, 2));
+        for (int i = 0; i < 10; i++)
+        {
+            firstBKoefs.add(new Label("B"+i));
+            firstBKoefs.add(new Label());
+            secondBKoefs.add(new Label("B"+i));
+            secondBKoefs.add(new Label());
+        }
+
+        c.gridy = 3;
+        c.weighty = 0.05f;
+        outDataPanel.add(new JLabel("Первые коэффициенты"), c);
+        c.gridy = 4;
+        c.weighty = 0.2f;
+        outDataPanel.add(firstBKoefs,c);
+
+        c.gridy = 5;
+        c.weighty = 0.05f;
+        outDataPanel.add(new JLabel("Вторые коэффициенты"), c);
+        c.gridy = 6;
+        c.weighty = 0.2f;
+        outDataPanel.add(secondBKoefs,c);
+
+
+        // deleted point
+        c.gridy = 7;
+        c.weighty = 0.05f;
+        outDataPanel.add(new JLabel("Удвленная точка:"), c);
+
+        deletedPoint = new JLabel("x =   y = ");
+        c.gridy = 8;
+        c.weighty = 0.05f;
+        outDataPanel.add(deletedPoint,c);
     }
 
     private void createGraphicsPanel()
