@@ -48,10 +48,10 @@ public class Drawer extends JPanel {
     {
         g.setColor(Color.WHITE);
         g.fillRect(0,0,getSize().width,getSize().height);
-        ((Graphics2D)g).setStroke(new BasicStroke(10F));
+        ((Graphics2D)g).setStroke(new BasicStroke(3F));
         for (Point point: points) {
             g.setColor(point.color);
-            g.fillOval(convertCoordX(point.x), convertCoordY(point.y),20,20);
+            g.fillOval(convertCoordX(point.x), convertCoordY(point.y),6,6);
         }
         for(Line line:lines)
         {
@@ -98,7 +98,7 @@ public class Drawer extends JPanel {
 
     private int convertCoordY(double y)
     {
-        return (int)((double)getSize().height/height*y-minY);
+        return getSize().height-(int)((double)getSize().height/height*y-minY);
     }
 
     private void setSize(double x, double y)
